@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Asia/Seoul
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin   # 원하는 아이디
+      - N8N_BASIC_AUTH_PASSWORD=admin # 원하는 비밀번호
+    
+      # WordPress (자신의 블로그 계정으로 변경)
+      - WORDPRESS_URL=https://blog.naver.com/yde222
+      - WORDPRESS_USERNAME=yde222
+      - WORDPRESS_PASSWORD=kim350104^^
+
+      # Discord Webhook
+      - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1418802588190773410/XGq1bnjMzniVw0_7b4_7UUmBc46VvhOEGUOmOhtpWpHq67bbydy-Ce0ns5bkG4VQBp3U
+
+      # OpenAI API Key
+      - OPENAI_API_KEY=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
+   
+    volumes:
+      - ./n8n_data:/home/node/.n8n  
+
+
+
